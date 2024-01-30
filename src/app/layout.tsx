@@ -62,10 +62,15 @@ export default function RootLayout({
                 </a>
               </div>
               <div>Exposé is not affiliated with Twitch Interactive</div>
-              <div className='sm:absolute right-7 bottom-7 flex items-center gap-2'>
+              <a
+                href='https://mikr.us/?r=03f72d1d'
+                rel='noopener noreferrer'
+                target='_blank'
+                className='sm:absolute right-7 bottom-7 flex items-center gap-2'
+              >
                 hosted on
                 <div className=' bg-[url("/mikrus_logo.svg")] bg-no-repeat w-[4.7rem] h-3'></div>
-              </div>
+              </a>
             </div>
           </div>
         </main>

@@ -47,48 +47,50 @@ const Page = async ({ params: { user } }: Props) => {
           <table className='w-full font-normal backdrop-blur-[2px]'>
             <thead className='border-b-2 border-[#06274b]'>
               <tr>
-                <th className='p-5 w-[50%] sm:w-[70%] text-left'>Badges</th>
-                <th className='p-5 text-left'>on channel</th>
+                <th className='p-5 w-[50%] sm:w-[50%] text-left'>Channel</th>
+                <th className='p-5 text-left'>Badges</th>
               </tr>
             </thead>
             <tbody>
-              {data.channels.map(({ channel_id, avatar_url, display_name, badges }: Channel) => (
-                <tr key={channel_id} className='border-b-2 border-[#06274b]'>
-                  <td className='font-normal p-5 flex gap-3 relative'>
-                    {badges.map(({ display_name, source }: Badge) => (
-                      <div key={display_name} className='relative'>
+              {data.channels
+                .sort((a: Channel, b: Channel) => b.badges.length - a.badges.length)
+                .map(({ channel_id, avatar_url, display_name, badges }: Channel) => (
+                  <tr key={channel_id} className='border-b-2 border-[#06274b]'>
+                    <td className='font-normal p-2'>
+                      <a
+                        href={`https://www.twitch.tv/${display_name.toLowerCase()}`}
+                        rel='noopener noreferrer'
+                        target='_blank'
+                        className='flex items-center gap-3'
+                      >
                         <Image
-                          src={source}
-                          alt={`${display_name}'s badge`}
-                          width={25}
-                          height={25}
-                          className='rounded peer'
-                        ></Image>
-                        <span className='absolute left-[50%] translate-x-[-50%] bottom-10 px-3 py-1 bg-black bg-opacity-75 rounded-xl hidden peer-hover:block text-center'>
-                          {display_name}
-                        </span>
-                      </div>
-                    ))}
-                  </td>
-                  <td className='font-normal p-2'>
-                    <a
-                      href={`https://www.twitch.tv/${display_name.toLowerCase()}`}
-                      rel='noopener noreferrer'
-                      target='_blank'
-                      className='flex items-center gap-3'
-                    >
-                      <Image
-                        src={avatar_url}
-                        alt={`${display_name}'s avatar`}
-                        width={35}
-                        height={35}
-                        className='rounded-full'
-                      />
-                      {display_name}
-                    </a>
-                  </td>
-                </tr>
-              ))}
+                          src={avatar_url}
+                          alt={`${display_name}'s avatar`}
+                          width={35}
+                          height={35}
+                          className='rounded-full'
+                        />
+                        {display_name}
+                      </a>
+                    </td>
+                    <td className='font-normal p-5 flex gap-3 relative'>
+                      {badges.map(({ display_name, source }: Badge) => (
+                        <div key={display_name} className='relative'>
+                          <Image
+                            src={source}
+                            alt={`${display_name}'s badge`}
+                            width={25}
+                            height={25}
+                            className='rounded peer'
+                          ></Image>
+                          <span className='absolute left-[50%] translate-x-[-50%] bottom-10 px-3 py-1 bg-black bg-opacity-75 rounded-xl hidden peer-hover:block text-center'>
+                            {display_name}
+                          </span>
+                        </div>
+                      ))}
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         )}
