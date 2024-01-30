@@ -64,7 +64,7 @@ const Page = async ({ params: { user } }: Props) => {
                           height={25}
                           className='rounded peer'
                         ></Image>
-                        <span className='absolute left-[50%] translate-x-[-50%] bottom-7 px-3 py-1 bg-[#06274b] bg-opacity-75 backdrop-blur-sm rounded-xl hidden peer-hover:block text-center'>
+                        <span className='absolute left-[50%] translate-x-[-50%] bottom-10 px-3 py-1 bg-black bg-opacity-75 rounded-xl hidden peer-hover:block text-center'>
                           {display_name}
                         </span>
                       </div>
