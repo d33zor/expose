@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <main className='relative flex flex-col px-6 pt-24 md:pt-24 md:px-24 items-center min-h-screen '>
+        <main className='relative flex flex-col px-6 pt-24 md:pt-24 md:px-24 items-center min-h-screen text-white'>
           <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-[#06274b] from-0% via-[#03152a] via-25% to-black to-100%'>
             <div
               className='min-h-screen w-full bg-[url("/bg.svg")]'
