@@ -2,7 +2,7 @@
 import React, { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-const Form = ({ value }: { value?: string }) => {
+const Form = ({ value }: { value: string | '' }) => {
   const router = useRouter();
   const [user, setUser] = useState(value ?? '');
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import Form from '../Form';
 import type { Metadata } from 'next';
 import { IconAlertTriangleFilled } from '@tabler/icons-react';
 import Image from 'next/image';
@@ -33,7 +32,6 @@ const Page = async ({ params: { user } }: Props) => {
 
   return (
     <div className='flex flex-col gap-6 items-center w-full'>
-      <Form value={user} />
       <div className='w-full flex flex-col items-center'>
         {data?.status !== 200 && (
           <div className='flex gap-3 mt-6'>
