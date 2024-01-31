@@ -26,7 +26,7 @@ export async function generateMetadata({ params: { user } }: Props): Promise<Met
 }
 
 const Page = async ({ params: { user } }: Props) => {
-  const data = await fetch(`https://ujawniacz.igor.ovh/user/${user}`)
+  const data = await fetch(`https://ujawniacz.igor.ovh/user/${user}`, { next: { revalidate: 300 } })
     .then((res) => res.json())
     .catch((err) => console.log(err));
 
@@ -39,6 +39,7 @@ const Page = async ({ params: { user } }: Props) => {
             {!data && 'An server error occured, try again later.'}
             {data?.status === 404 && 'User was not found in our database.'}
             {data?.status === 500 && 'Username is too short.'}
+            {data?.status === 429 && 'You can send 5 requests per 5 seconds.'}
           </div>
         )}
         {data?.status === 200 && (
