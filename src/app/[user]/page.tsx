@@ -47,7 +47,7 @@ const Page = async ({ params: { user } }: Props) => {
           <table className='w-full font-normal backdrop-blur-[2px]'>
             <thead className='border-b-2 border-[#06274b]'>
               <tr>
-                <th className='p-5 w-[50%] sm:w-[50%] text-left'>Channel</th>
+                <th className='p-5 w-[50%] text-left'>Channel</th>
                 <th className='p-5 text-left'>Badges</th>
               </tr>
             </thead>
@@ -69,6 +69,7 @@ const Page = async ({ params: { user } }: Props) => {
                           width={35}
                           height={35}
                           className='rounded-full'
+                          priority
                         />
                         {display_name}
                       </a>
@@ -82,7 +83,8 @@ const Page = async ({ params: { user } }: Props) => {
                             width={25}
                             height={25}
                             className='rounded peer'
-                          ></Image>
+                            priority
+                          />
                           <span className='absolute left-[50%] translate-x-[-50%] bottom-10 px-3 py-1 bg-black bg-opacity-75 rounded-xl hidden peer-hover:block text-center'>
                             {display_name}
                           </span>
