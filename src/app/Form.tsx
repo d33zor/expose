@@ -10,7 +10,7 @@ const Form = ({ value }: { value?: string }) => {
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    router.push(`/${user.replaceAll('/', '').replaceAll('\\', '')}`);
+    router.push(`/${user.replaceAll('/', '').replaceAll('\\', '').trim()}`);
   };
 
   return (
