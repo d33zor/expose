@@ -1,6 +1,6 @@
 'use client';
 import React, { FormEvent, MutableRefObject, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next13-progressbar';
 import { IconX } from '@tabler/icons-react';
 
 const Form = ({ value }: { value?: string }) => {

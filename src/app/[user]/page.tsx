@@ -65,9 +65,9 @@ const Page = async ({ params: { user } }: Props) => {
                         <Image
                           src={avatar_url}
                           alt={`${display_name}'s avatar`}
-                          width={35}
-                          height={35}
-                          className='rounded-full'
+                          width={40}
+                          height={40}
+                          className='rounded-full border-2 border-[#06274b]'
                           priority
                         />
                         {display_name}
